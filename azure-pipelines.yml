@@ -20,3 +20,10 @@ steps:
     npx truffle compile
     npx truffle test
   displayName: 'truffle compile & test'
+
+  # azure-pipelines.js - Publish Test Results in 
+- task: PublishTestResults@2
+  condition: always()
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml' 
